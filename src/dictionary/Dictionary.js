@@ -38,6 +38,7 @@ export default class Dictionary {
 		console.log('endIndex: '+endIndex);
 
 		console.log(dictionary.substring(startIndex, endIndex));
-		return dictionary.substring(startIndex, endIndex);
+		return dictionary.substring(startIndex, endIndex).split(" ");
+
 	}
 }
