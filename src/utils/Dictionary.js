@@ -1,7 +1,7 @@
 import Cedict from './Cedict.js';
 
 export default class Dictionary {
-	//Time Conversions
+	//testing function
 	static translatorTest() {
 		console.log(this.getPinyin('三倍EB'));
 		return this.getEnglishTranslation('三倍EB');
