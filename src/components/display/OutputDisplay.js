@@ -5,10 +5,6 @@ import ChineseDisplay from './ChineseDisplay.js';
 import EnglishDisplay from './EnglishDisplay.js';
 
 export default class OutputDisplay extends Component {
-	constructor(props) {
-		super(props);
-		this.state = ({  });
-	}
 
 	render() {
 		return (

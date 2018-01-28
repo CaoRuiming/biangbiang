@@ -11,7 +11,7 @@ export default class SingleCharacterDisplay extends Component {
 
 	handleClick(e) {
 		this.setState({ isSelected: !this.state.isSelected });
-		this.props.handleSelection(e, this.props.character);
+		this.props.handleSelection(this.props.index, this.props.character);
 	}
 
 	render() {

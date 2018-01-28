@@ -10,10 +10,12 @@ export default class EnglishDisplay extends Component {
 			'background': 'white'
 		};
 
+		const inputText = (this.props.selectedText == '') ? '' : (this.props.selectedText + ' → ');
+
 		return (
 			<div style = { style }>
 				<p>
-					{ this.props.selectedText + ' → ' + this.props.englishTranslation }
+					{ inputText + this.props.englishTranslation }
 				</p>
 			</div>
 		);

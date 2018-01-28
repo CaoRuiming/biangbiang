@@ -19,11 +19,18 @@ class App extends Component {
 		this.setState({ input: e.target.value });
 	}
 
-	handleSelection(e, character) {
-		this.setState({ selectedText: [...this.state.selectedText, character] });
+	handleSelection(index, character) {
+		let updatedSelectedText = [...this.state.selectedText, {index: index, character: character}];
+		updatedSelectedText.sort((a,b) => {return a.index >= b.index;});
+		if(updatedSelectedText.filter((element) => {return element.index == index;}).length > 1) {
+			updatedSelectedText = updatedSelectedText.filter((element) => {return element.index !== index;});
+		}
+		this.setState({ selectedText: updatedSelectedText });
 	}
 
   render() {
+		const processedSelectedText =
+			this.state.selectedText.map((object) => object.character).join('');
     return (
       <div className='App'>
 			<h1>
@@ -42,7 +49,7 @@ class App extends Component {
 			<p>Output</p>
 			<OutputDisplay
 				input = { this.state.input }
-				selectedText = { this.state.selectedText.join('') }
+				selectedText = { processedSelectedText }
 				handleSelection = { this.handleSelection }
 			/>
       </div>
