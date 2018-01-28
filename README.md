@@ -7,5 +7,13 @@ To run for the first time:
 npm install
 npm start
 ```
+To run afterwards:
+```
+npm start
+```
+To build for Production:
+```
+npm run build
+```
 
 For more details on running, building, and testing, refer to the documentation for Create React App.

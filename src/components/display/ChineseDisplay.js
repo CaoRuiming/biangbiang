@@ -16,7 +16,7 @@ export default class ChineseDisplay extends Component {
   }
 
 	displayChineseCharacters() {
-		return this.props.input.split('').map((character, index) => {
+		return this.props.input.split('').filter((character) => {return !this.isUnnecessaryChar(character);}).map((character, index) => {
 			return (
 				<SingleCharacterDisplay
 					key = { index }
@@ -27,6 +27,10 @@ export default class ChineseDisplay extends Component {
 				/>
 			);
 		});
+	}
+
+	isUnnecessaryChar(character) {
+		return ' \n\t　'.indexOf(character) !== -1;
 	}
 
 	render() {
