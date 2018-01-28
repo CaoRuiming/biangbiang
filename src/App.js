@@ -2,23 +2,25 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import Dictionary from './utils/Dictionary.js';
 import OutputDisplay from './components/display/OutputDisplay.js';
 
 class App extends Component {
 	constructor(props) {
 		super(props);
 		this.handleChange = this.handleChange.bind(this);
-		this.state = ({ input: '' });
-	}
-
-	translatorTest() {
-		return Dictionary.translatorTest('A')
+		this.handleSelection = this.handleSelection.bind(this);
+		this.state = ({
+			input: '',
+			selectedText: [],
+		});
 	}
 
 	handleChange(e) {
-		console.log(e.target.value);
 		this.setState({ input: e.target.value });
+	}
+
+	handleSelection(e, character) {
+		this.setState({ selectedText: [...this.state.selectedText, character] });
 	}
 
   render() {
@@ -34,12 +36,15 @@ class App extends Component {
 				Biáng
 			</h1>
 			<textarea
-				defaultValue = 'Paste input here!'
+				placeholder = 'Paste input here!'
 				onChange = { this.handleChange }>
 			</textarea>
-			<button className='button'>Biáng it</button>
 			<p>Output</p>
-			<OutputDisplay input = { this.state.input } />
+			<OutputDisplay
+				input = { this.state.input }
+				selectedText = { this.state.selectedText.join('') }
+				handleSelection = { this.handleSelection }
+			/>
       </div>
     );
   }

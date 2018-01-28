@@ -7,27 +7,19 @@ import EnglishDisplay from './EnglishDisplay.js';
 export default class OutputDisplay extends Component {
 	constructor(props) {
 		super(props);
-		this.state = ({
-
-		});
+		this.state = ({  });
 	}
 
 	render() {
-		if (this.state.isLoading) {
-			return (
-				<div>
-					<p>Loading...</p>
-				</div>
-			);
-		}
-
 		return (
 			<div>
 				<ChineseDisplay
-					input = { this.props.input.slice(0).split('') }
+					input = { this.props.input }
+					handleSelection = { this.props.handleSelection }
 				/>
 				<EnglishDisplay
-					englishTranslation = { Dictionary.getEnglishTranslation(this.props.input) }
+					selectedText = { this.props.selectedText }
+					englishTranslation = { Dictionary.getEnglishTranslation(this.props.selectedText) }
 				/>
 			</div>
 		);
