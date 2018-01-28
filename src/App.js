@@ -34,7 +34,7 @@ class App extends Component {
 				Biáng
 			</h1>
 			<textarea
-				defaultValue = 'Input...'
+				defaultValue = 'Paste input here!'
 				onChange = { this.handleChange }>
 			</textarea>
 			<button className='button'>Biáng it</button>
