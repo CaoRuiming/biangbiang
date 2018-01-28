@@ -10,7 +10,7 @@ export default class Dictionary {
 
 		if (indexNeeded !== -1) {
 			const startIndex = dictionary.substr(indexNeeded).indexOf('/')+indexNeeded+1;
-			const endIndex = dictionary.substr(startIndex).indexOf('/')+startIndex;
+			const endIndex = dictionary.substr(startIndex).indexOf('/\n')+startIndex;
 			return dictionary.substring(startIndex, endIndex);
 		} else {
 			return 'No translation to show...';

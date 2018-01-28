@@ -43,10 +43,10 @@ class App extends Component {
 				Biáng
 			</h1>
 			<textarea
+				style = {{ 'marginBottom': '30px' }}
 				placeholder = 'Paste input here!'
 				onChange = { this.handleChange }>
 			</textarea>
-			<p>Output</p>
 			<OutputDisplay
 				input = { this.state.input }
 				selectedText = { processedSelectedText }

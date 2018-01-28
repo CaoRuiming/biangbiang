@@ -7,17 +7,17 @@ import EnglishDisplay from './EnglishDisplay.js';
 export default class OutputDisplay extends Component {
 
 	render() {
-		return (
-			<div>
-				<ChineseDisplay
-					input = { this.props.input }
-					handleSelection = { this.props.handleSelection }
-				/>
-				<EnglishDisplay
-					selectedText = { this.props.selectedText }
-					englishTranslation = { Dictionary.getEnglishTranslation(this.props.selectedText) }
-				/>
-			</div>
-		);
+		return (this.props.input.length < 1) ? null :
+			(<div>
+					{ (this.props.input.length > 0) ? <p>Output</p> : null }
+					<ChineseDisplay
+						input = { this.props.input }
+						handleSelection = { this.props.handleSelection }
+					/>
+					<EnglishDisplay
+						selectedText = { this.props.selectedText }
+						englishTranslation = { Dictionary.getEnglishTranslation(this.props.selectedText) }
+					/>
+				</div>);
 	}
 }
