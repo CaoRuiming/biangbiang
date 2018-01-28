@@ -4,12 +4,24 @@ export default class SingleCharacterDisplay extends Component {
 	constructor(props) {
 		super(props);
 		this.handleClick = this.handleClick.bind(this);
+		this.handleDragStart = this.handleDragStart.bind(this);
+		this.handleDragEnter = this.handleDragEnter.bind(this);
 		this.state = ({
-			isSelected: false
+			isSelected: false,
+			userIsDragging: false
 		});
 	}
 
 	handleClick(e) {
+		this.setState({ isSelected: !this.state.isSelected });
+		this.props.handleSelection(this.props.index, this.props.character);
+	}
+
+	handleDragStart(e) {
+		e.dataTransfer.setDragImage(document.createElement('canvas'), 0, 0);
+	}
+
+	handleDragEnter(e) {
 		this.setState({ isSelected: !this.state.isSelected });
 		this.props.handleSelection(this.props.index, this.props.character);
 	}
@@ -26,11 +38,15 @@ export default class SingleCharacterDisplay extends Component {
 		return (
 			<div
 				style = { style }
-				className = 'unselectable'
+				className = { 'unselectable' }
+				id = { 'drop' }
+				draggable = { true }
 				onClick = { (e) => this.handleClick(e) }
+				onDragStart = { (e) => this.handleDragStart(e) }
+				onDragEnter = { (e) => this.handleDragEnter(e) }
 			>
-				<p>{ this.props.pinyin }</p>
-				<p>{ this.props.character }</p>
+				<p onDragEnter = { (e) => {} }>{ this.props.pinyin }</p>
+				<p onDragEnter = { (e) => {} }>{ this.props.character }</p>
 			</div>
 		);
 	}

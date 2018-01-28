@@ -4,6 +4,11 @@ import Dictionary from '../../utils/Dictionary.js';
 import SingleCharacterDisplay from './SingleCharacterDisplay.js';
 
 export default class ChineseDisplay extends Component {
+	constructor(props) {
+		super(props);
+		this.state = ({ mouseIsDown: false });
+	}
+
 	shouldComponentUpdate(nextProps) {
 		const differentHandleSelection = this.props.handleSelection !== nextProps.handleSelection;
 		const differentInput = this.props.input !== nextProps.input;

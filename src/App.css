@@ -78,6 +78,8 @@ textarea {
    user-select: none;
 }
 
+#drop * {pointer-events: none;}
+
 /*
 .App-logo {
   animation: App-logo-spin infinite 20s linear;

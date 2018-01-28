@@ -11,7 +11,7 @@ export default class EnglishDisplay extends Component {
 		};
 
 		const outputText =
-			(this.props.selectedText == '') ?
+			(this.props.selectedText.length < 1) ?
 				'Click on output to select text to translate!' :
 				(this.props.selectedText + ' → ' + this.props.englishTranslation);
 

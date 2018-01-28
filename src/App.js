@@ -22,7 +22,7 @@ class App extends Component {
 	handleSelection(index, character) {
 		let updatedSelectedText = [...this.state.selectedText, {index: index, character: character}];
 		updatedSelectedText.sort((a,b) => {return a.index >= b.index;});
-		if(updatedSelectedText.filter((element) => {return element.index == index;}).length > 1) {
+		if(updatedSelectedText.filter((element) => {return element.index === index;}).length > 1) {
 			updatedSelectedText = updatedSelectedText.filter((element) => {return element.index !== index;});
 		}
 		this.setState({ selectedText: updatedSelectedText });
@@ -40,7 +40,7 @@ class App extends Component {
 					className='App-logo'
 					alt='logo'
 				/>
-				Biáng
+				 ⇋ BiángBiáng
 			</h1>
 			<textarea
 				style = {{ 'marginBottom': '30px' }}
